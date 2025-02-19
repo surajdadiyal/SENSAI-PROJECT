@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getCoverLetter } from "@/actions/cover-letter";
-import CoverLetterPreview from "../_components/coverLetterPreview";
+import { getCoverLetter } from "@/actions/coverletter";
+import CoverLetterPreview from "../_components/coverLetterGenerator";
 
 export default async function EditCoverLetterPage({ params }) {
   const { id } = await params;

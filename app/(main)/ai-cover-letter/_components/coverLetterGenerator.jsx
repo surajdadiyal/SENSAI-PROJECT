@@ -1,6 +1,6 @@
 "use client";
 
-import { generateCoverLetter } from "@/actions/cover-letter";
+import { generateCoverLetter } from "@/actions/coverletter";
 import { coverLetterSchema } from "@/app/lib/schema";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import useFetch from "@/hooks/use-fetch";
+import useFetch from "@/hooks/usefetch";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
