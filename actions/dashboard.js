@@ -61,11 +61,16 @@ export async function getIndustryInsights() {
     if (!user.industryInsight || new Date(user.industryInsight.nextUpdate) < new Date()) {
       const insights = await generateAIInsights(user.industry);
   
-      const industryInsight = await db.industryInsight.create({
-        data: {
-          industry: user.industry,
+      const industryInsight = await db.industryInsight.upsert({
+        where: { industry: user.industry },
+        update: {
           ...insights,
           nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
+        },
+        create: {
+          industry: user.industry,
+          ...insights,
+          nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         },
       });
   
